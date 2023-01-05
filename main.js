@@ -14,25 +14,45 @@ function addBookToLibrary(title, author, pages, hasRead) {
 
 // Display each book card on the page
 const body = document.querySelector('body');
-   
+// const author = document.getElementById('author').value;
+// const title = document.getElementById('title').value;
+// const pages = document.getElementById('pages').value;
+// const hasRead = document.getElementById('hasRead').value;
 function displayBook() {
   const bookCard = document.createElement('div');
   const bookContainer = document.createElement('div');
   const bookTitle = document.createElement('h4');
+  const bookAuthor = document.createElement('p');
+  const bookPages = document.createElement('p');
+  const readBook = document.createElement('input');
+  const label = document.createElement('label');
 
   bookCard.setAttribute('id', 'bookCard');
   bookCard.setAttribute('class', 'card');
   bookContainer.setAttribute('id', 'bookContainer');
   bookContainer.setAttribute('class', 'container');
   bookTitle.setAttribute('class', 'bookTitle');
+  bookAuthor.setAttribute('class', 'book-author');
+  bookPages.setAttribute('class', 'book-pages');
+  readBook.setAttribute('type', 'checkbox');
+  readBook.setAttribute('class', 'haveRead');
+  label.setAttribute('for', 'haveRead');
 
+  label.innerText = 'Have read?';
+  
   bookCard.appendChild(bookContainer);
   bookContainer.appendChild(bookTitle);
+  bookContainer.appendChild(bookAuthor);
+  bookContainer.appendChild(bookPages);
+  bookContainer.appendChild(readBook);
+  bookContainer.appendChild(label);
 
   body.appendChild(bookCard);
 
   myLibrary.forEach(book => {
     bookTitle.innerText = book.title;
+    bookAuthor.innerText = book.author;
+    bookPages.innerText = book.pages;
   })
 }
 
