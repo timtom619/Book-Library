@@ -75,6 +75,7 @@ function addBook(event) {
   const hasRead = document.getElementById('hasRead').value;
   
   addBookToLibrary(title, author, pages, hasRead);
+  displayBook();
   hideModal();
 }
 
